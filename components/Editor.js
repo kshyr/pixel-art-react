@@ -6,9 +6,7 @@ const Editor = () => {
   const [canvasWidth, setCanvasWidth] = useState(32);
   const [canvasHeigth, setCanvasHeigth] = useState(32);
   const [color, setColor] = useState("#000000");
-  const [canvasSizeSelected, setCanvasSizeSelected] = useState(false);
-
-  const canvasRef = useRef();
+  const [canvasSizeSelected, setCanvasSizeSelected] = useState(true);
 
   return (
     <div className="editor ">
@@ -16,7 +14,6 @@ const Editor = () => {
         width={canvasWidth}
         heigth={canvasHeigth}
         color={color}
-        canvasRef={canvasRef}
       />)}
       <RgbaColorPicker color={color} onChange={setColor} />
     </div>

@@ -1,17 +1,12 @@
-import Pixel from './Pixel';
-const Row = ({width}) => {
+import Pixel from "./Pixel";
+const Row = ({ width, color }) => {
+  let pixels = [];
 
-    let pixels = [];
+  for (let i = 0; i < width; i++) {
+    pixels.push(<Pixel selectedColor={color}/>);
+  }
 
-    for (let i = 0; i < width; i++) {
-        pixels.push(<Pixel/>);
-    }
-
-  return (
-    <div>
-
-    </div>
-  )
-}
+  return <div className="inline-block">{pixels}</div>;
+};
 
 export default Row;
