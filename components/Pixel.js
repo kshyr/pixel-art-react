@@ -1,22 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+
 const Pixel = ({ selectedColor }) => {
-  const [color, setColor] = useState("#FFF");
-  const [mouseOnDiv, setMouseOnDiv] = useState(false);
+  const [color, setColor] = useState(selectedColor);
   const ref = useRef();
-
-  useEffect(() => {
-    const pixel = ref.current;
-    pixel.addEventListener('mousedown', changeColor);
-  }, [])
-
-  function changeColor() {
-    setColor(selectedColor);
-  }
   return (
     <div
-      className="bg-slate-50 h-4 w-4 border"
-      style={{ backgroundColor: color }}
+      className="bg-slate-50 h-4 w-4"
+      style={{ backgroundColor: color, userSelect: "none" }}
       ref={ref}
+      onMouseOver={(e) => {
+        if (e.buttons === 1) {
+          setColor(selectedColor);
+        }
+      }}
+      onMouseDown={() => setColor(selectedColor)}
     ></div>
   );
 };
